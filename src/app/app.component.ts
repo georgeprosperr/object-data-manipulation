@@ -94,9 +94,6 @@ export class AppComponent {
       });
       rows.push(row);
     }
-    // Sort rows data.
-    rows.sort((row1: Row, row2: Row) => { return (row2.data[0] - row1.data[0]); });
-
     // sort data based on selected.
     const sortedRows = this.sortRowFunction(rows, 0);
     this.table.rows.push(...sortedRows);
