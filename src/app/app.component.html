@@ -6,30 +6,36 @@
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
     <h2 class="text-center">Interview Question</h2>
+
+    <div class="row">
+      <div class="col-md-6">
+        <button (click)="generateTable('table1')" type="button" class="btn btn-primary btn-lg btn-block">
+          Generate Table 1
+        </button>
+      </div>
+      <div class="col-md-6">
+        <button (click)="generateTable('table2')" type="button" class="btn btn-primary btn-lg btn-block">
+          Generate Table 2
+        </button>
+      </div>
+
+      <div class="col-md-12">
+        <div>
+          <h2>{{tableName}}</h2>
+
+          <table *ngIf="doneLoading">
+            <tr>
+              <th *ngFor="let header of table.header">{{header}}</th>
+            </tr>
+
+            <tr *ngFor="let row of table.rows">
+              <td *ngFor="let data of row.data">{{data}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<ul>
-  <li>
-    <button (click)="generateTable('table1')">Generate Table 1</button>
-    &nbsp;&nbsp;&nbsp;
-    <button (click)="generateTable('table2')">Generate Table 2</button>
-  </li>
-</ul>
-
-<div>
-  <h2>{{tableName}}</h2>
-
-  <table *ngIf="doneLoading">
-    <tr>
-      <th *ngFor="let header of table.header">{{header}}</th>
-    </tr>
-
-    <tr *ngFor="let row of table.rows">
-      <td *ngFor="let data of row.data">{{data}}</td>
-    </tr>
-  </table>
-</div>
-
-
 
 <router-outlet></router-outlet>
